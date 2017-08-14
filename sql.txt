@@ -1,0 +1,3 @@
+SELECT [Field7_50]
+  FROM [Net2].[sdk].[UsersEx] A
+WHERE A.UserID in ( select [UserID] from [Net2].[sdk].[Cards] where CardNumber = {cardnumber})
