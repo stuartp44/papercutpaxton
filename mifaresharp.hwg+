@@ -1,0 +1,114 @@
+/--- pcProx and OEM Reader Configuration Template File ---
+:Library Version: 7.2.24 
+:Device FW Version: 09.00 
+
+/ AZERTYShiftLock
+AZERTYShiftlock = 0     / 0= off, 1 = on
+
+/ ExtendedPrecisionMath
+ExtendedPrecisionMath = 0     / 0= off, 1 = on
+
+/ tsIDBitCnts
+iLeadParityBitCnt = 0     / Wiegand Leading Parity bit count to be stripped
+iTrailParityBitCnt = 0     / Wiegand Trailing Parity bit count to be stripped
+iIDBitCnt = 64     / if bStripFac, this determines bit count of ID and FAC
+iTotalBitCnt = 64     / if bFrcBitCntEx, card read (including parity) must match this
+
+/ tsCfgFlags
+bFixLenDsp = 1     / Send as fixed length with leading zeros as needed
+bFrcBitCntEx = 0     / Force Rx'd bit count to be exact to be valid
+bStripFac = 0     / Strip the FAC from the ID (not discarded)
+bSndFac = 0     / Send the FAC (if stripped from data)
+bUseDelFac2Id = 1     / Put a delimiter between FAC and ID on send
+bNoUseELChar = 0     / Don't use a EndLine char on send (default to ENTER)
+bSndOnRx = 0     / Send valid ID as soon as it is received (iIDLockOutTm timer not used)
+bHaltKBSnd = 0     / Don't Send keys to USB (Get ID mechanism)
+
+/ tsIDDispParms
+iFACIDDelim = 179     / if bStripFac & bSndFac & bUseDelFac2Id, this char sent between FAC & ID
+iELDelim = 40     / if NOT bNoUseELChar, this char sent at end of ID
+iIDDispLen = 9     / if bFixLenDsp, ID padded with zeros to this length
+iFACDispLen = 3     / if bFixLenDsp, FAC padded with zeros to this length
+iExOutputFormat = 0     / 0 = Data Format Mode, 1 = Extended Mode
+
+/ tsTimeParms
+iBitStrmTO = 80     / Wiegand read times out after this msec time (4msec gran.)
+iIDHoldTO = 1050     / Card ID remains valid for this msec time (50msec gran.)
+iIDLockOutTm = 1200     / Squelch repetitive reader reports (usually > 1000) in msec (50msec gran.)
+iUSBKeyPrsTm = 8     / Sets USB inter-key 'Press' time in msecs (4msec gran.)
+iUSBKeyRlsTm = 8     / Sets USB inter-key 'Release' time in msecs (4msec gran.)
+
+/ tsCfgFlags2
+bUseLeadChrs = 0     / Use leading chars in ID KB send
+bDspHex = 0     / Display ID as ASCII Hex [not ASCII decimal]
+bWiegInvData = 1     / Wiegand data on pins is inverted
+bUseInvDataF = 1     / use the bWiegInvData flag over hardware setting
+bRevWiegBits = 0     / Reverse the Wiegand Rx bits
+bBeepID = 1     / Beep when ID received
+bRevBytes = 1     / Reverse byte order (CSN reader)
+
+/ tsCfgFlags3
+bUseNumKP = 0     / Euro KB flag
+bSndSFON = 1     / Split format ON = 1, old combined scheme = 0
+bSndSFFC = 0     / 0 = FAC Decimal, 1 = FAC Hex
+bSndSFID = 0     / 0 = ID Decimal, 1 = ID Hex
+bPrxProEm = 0     / Use ProxPro emulation
+bUse64Bit = 1     / 0 = 32-bit, 1 = 64-bit Display Math
+bNotBootDev = 0     / USB Enum: 0=BootDevice, 1=NOTBootDevice
+bLowerCaseHex = 0     / 0= Upper case , 1= Lower case
+
+/ tsIDDispParms2
+iLeadChrCnt = 0     / if bUseLeadChrs, this contains the lead char count (<=3)
+iLeadChr0 = 0     / these lead characters are filled in (up to 3)
+iLeadChr1 = 0     / 
+iLeadChr2 = 0     / 
+iCrdGnChr0 = 0     / if non-zero, sent when ID goes Invalid
+iCrdGnChr1 = 0     / if this and Chr0 non-zero, sent when ID goes Invalid
+
+/ tsIDDispParms3
+iTrailChrCnt = 0     / this contains the trail char count (<=3)
+iTrailChr0 = 0     / these trail characters are filled in (up to 3)
+iTrailChr1 = 0     / NOTE: LeadChrCnt + TrailCheCnt <= 3
+iTrailChr2 = 0     /       LeadChrs have priority
+
+/ tsLEDCtrl
+bAppCtrlsLED = 0     / Display LEDs are controlled by user thru this DLL
+iRedLEDState = 0     / 0 == Off, 1 == On
+iGrnLEDState = 0     / 0 == Off, 1 == On
+
+/ tsBprRlyCtrl
+iBeeperState = 0     / 0 == Off, 1 == On
+iRelayState = 0     / 0 == Off, 1 == On
+
+/ Note: DO NOT change the name "sFldSepData"!
+/ Comment and Blank Lines between data bytes are optional.
+/ ASCII Hex data bytes may be separated by Comma, Period, Space or Tab.
+
+BEGIN sFldSepData
+
+/ FldSepHdr[2] =
+0C.00
+
+/ FldDefs[][4] =
+
+/ SepDefs[][2] =
+
+/ SepData[] =
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.00.00
+00.00.00.00.00.00.
+
+END sFldSepData
